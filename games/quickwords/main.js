@@ -23,7 +23,7 @@ let currentScore = gameBoard.querySelector('#score');
 function gameInitialize() {
     console.log('Game initialized');
 
-    fetch('../words.txt')
+    fetch('./words.txt')
         .then(response => response.text())
         .then(data => {
             words = data.split('\n');

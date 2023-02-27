@@ -1,8 +1,54 @@
-.line-reverse {
-  transform: rotate(180deg);
+/* Projects file, Expanding arrow */
+#arrow {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  width: 2px;
+  height: 300px;
+  background-image: url('../images/line.svg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  transition: transform 1s ease-in-out;
+}
+
+#arrow.active {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.links {
+  text-decoration: none;
+}
+.links:hover {
+  text-decoration: underline;
 }
 
 
+/* Navbar hover effect */
+.nav-link:hover {
+  background: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text !important;
+    color: transparent !important;
+    transform: scale(1.05);
+    font-weight: 500;
+}
+
+/* Custom color classes */
+.bg-custom {
+  background-color: #410e8d !important;
+}
+.line-reverse {
+  transform: rotate(180deg);
+}
+.text-customv2 {
+  background: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 .text-custom {
   background: linear-gradient(to bottom, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
     -webkit-background-clip: text;
@@ -23,7 +69,7 @@
   line-height: 1;
   color: #e9ecef;
 }
-.login:hover {
+.btn-custom:hover {
   background-image:
   url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='myGradient' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0%' stop-color='hsl(273, 75%, 66%)'/%3E%3Cstop offset='100%' stop-color='hsl(240, 73%, 65%)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3Crect x='0' y='0' width='2255' height='899' fill='url(%23myGradient)'/%3E%3Ccircle cx='366' cy='207' r='366' fill='url(%23myGradient)'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='url(%23myGradient)'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='url(%23myGradient)'/%3E%3C/g%3E%3C/svg%3E%0A") !important;  
 }
@@ -54,104 +100,38 @@
   list-style: none;
 }
 
-
 .custom-bullet-list li:before {
   content: "";
   display: inline-block;
   margin-right: 10px;
   width: 1em;
   height: 1em;
-  background-image: url("data:image/svg+xml,%3Csvg stroke='%23900FFF' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E%0A");
+  background-image: url("data:image/svg+xml,%3Csvg stroke='%23FFFFFF' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E%0A");
 
 }
 
 
-
-
-
-
-/* Timeline */
-
-.timeline {
-  position: relative;
-  padding: 0;
-  list-style: none;
+/* SVG WAVE background image */
+.wave {
+  aspect-ratio: 900/300;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.wave-layer {
+  background-image: url(../images/layered-wave.svg);
 }
 
-.timeline:before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 40px;
-  width: 2px;
-  margin-left: -1.5px;
-  content: "";
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='myGradient' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0%' stop-color='hsl(273, 75%, 66%)'/%3E%3Cstop offset='100%' stop-color='hsl(240, 73%, 65%)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3Crect x='0' y='0' width='2255' height='899' fill='url(%23myGradient)'/%3E%3Ccircle cx='366' cy='207' r='366' fill='url(%23myGradient)'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='url(%23myGradient)'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='url(%23myGradient)'/%3E%3C/g%3E%3C/svg%3E%0A") !important;
+/* Scroll reveal animation */
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translatex(-100%);
+  transition: all 1s;
 }
-
-.timeline>li {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 50px;
-}
-
-.timeline>li:after,
-.timeline>li:before {
-  display: table;
-  content: " ";
-}
-
-.timeline>li:after {
-  clear: both;
-}
-
-.timeline>li .timeline-panel {
-  position: relative;
-  float: right;
-  width: 100%;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-
-.timeline>li .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-
-.timeline>li .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
-
-.timeline>li .timeline-image {
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  margin-left: 0;
-  text-align: center;
-  color: white;
-  
-  border-radius: 100%;
-  background-image:
-  url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='myGradient' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0%' stop-color='hsl(273, 75%, 66%)'/%3E%3Cstop offset='100%' stop-color='hsl(240, 73%, 65%)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3Crect x='0' y='0' width='2255' height='899' fill='url(%23myGradient)'/%3E%3Ccircle cx='366' cy='207' r='366' fill='url(%23myGradient)'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='url(%23myGradient)'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='url(%23myGradient)'/%3E%3C/g%3E%3C/svg%3E%0A") !important;}
-
-.timeline>li .timeline-image h4,
-.timeline>li .timeline-image .h4 {
-  font-size: 10px;
-  line-height: 14px;
-  margin-top: 12px;
-}
-
-.timeline>li.timeline-inverted>.timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }

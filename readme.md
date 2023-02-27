@@ -28,10 +28,9 @@ Bootstrap 5 krav:
 - Minst tre olika komponenter från boostrap 5.
 - modal kompnenten skall användas för inloggning.
 
-### Screenshot
+#### Ending Thoughts
 
-![](./images/screenshot.png)
-![](./images/screenshot.png)
+Jag började enkelt använda mig av färgerna från bootstrap, men märkte att för att en personlig touch & för att text kontrasten ska vara godkänd enligt WCAG, behövde jag gå utanför bootstraps färger.
 
 ### Built with
 - Boostrap 5
