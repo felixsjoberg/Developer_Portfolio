@@ -8,14 +8,26 @@ let activeGame = false;
 let score = 0;
 let words = []; // declare array to save words from text file.
 let timerInterval; // declare variable to save interval function.
- 
+let highScore = localStorage.getItem('highScore') || 0;
+
 //DOM
 const gameBoard = document.getElementById('gameboard');
 const inputVal = gameBoard.querySelector('#input-word');
 let inputTimer = gameBoard.querySelector('#time');
 let word = gameBoard.querySelector('#word');
 let currentScore = gameBoard.querySelector('#score');
+const highScoreElement = gameBoard.querySelector('#high-score');
 
+
+
+
+function updateHighScore() {
+    if (score > highScore) {
+        highScore = score;
+        highScoreElement.innerHTML = highScore;
+        localStorage.setItem('highScore', highScore);
+    }
+}
 
 //  Initialize game and fetch words from text file,
 // by doing like this I can use the words in the game,
@@ -30,6 +42,9 @@ function gameInitialize() {
             randomWord(words);
         })
         .catch(error => console.error(error));
+
+    // Highscore from localStorage
+    highScoreElement.innerHTML = highScore;
 }
 
 //   Set difficulty to value in local storage or medium by default
@@ -86,7 +101,7 @@ function gameRestartHint() {
     word.innerHTML = 'Game Over!';
 
     gameBoard.querySelector('#hint').innerText = 'Press ENTER to play again';
-    
+
     inputVal.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
             score = 0;
@@ -96,6 +111,7 @@ function gameRestartHint() {
             startGame();
         }
     });
+    updateHighScore();
 }
 
 function randomWord(words) {
@@ -104,3 +120,4 @@ function randomWord(words) {
     word.classList.add('text-info', 'text-center', 'display-4');
     word.classList.remove('text-danger');
 }
+

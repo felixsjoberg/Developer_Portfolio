@@ -19,19 +19,17 @@
 
 <body class="bg-black text-white" style="min-height: 100vh;">
     <div class="container p-5 d-flex justify-content-center">
-        <div class="bg-dark card p-5 al" id="gameboard">
+        <div class="bg-dark card p-5 w-50" style="min-width: 70%;" id="gameboard">
             <div class="text-center">
                 <h1 class="mb-5">QuickWords</h1>
                 <p class="text-secondary">Game Modes:</p>
             </div>
             <div class="card-header ">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs ">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">WordScramble</a>
+                        <a class="nav-link " href="#">WordScramble</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">WordDash</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-secondary"  href="#">Coming soon..</a>
                     </li>
@@ -49,6 +47,7 @@
                 <h2 class="p-3">Time Left: <span class="text-warning" id="time">5</span></h2>
                 <input type="text" id="input-word" class="form-control" placeholder="Start typing..">
                 <h2 class="p-3">Score: <span class="text-success" id="score"></span></h2>
+                <p class="text-center text-success fs-4">High Score: <span id="high-score"></span></p>
             </div>
         </div>
     </div>
