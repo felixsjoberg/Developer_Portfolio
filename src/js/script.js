@@ -1,15 +1,63 @@
 //#region general
 
-/* Toast notification message when LOGIN button in modal is clicked. */
 
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', () => {
-    const toast = new bootstrap.Toast(toastLiveExample)
+/* Login validation & Toast notification message on successful LOGIN in the modal */
+const modalForm = document.getElementById('modal-form')
+const username = modalForm.querySelector('#username')
+const password = modalForm.querySelector('#password')
+const errorElement = modalForm.querySelector('#error')
+const loginButton = modalForm.querySelector('#liveToastBtn')
+
+// Different Login validation
+loginButton.addEventListener('click', (e) => {
+  let messages = []
+  if (username.value === '' || username.value == null) {
+    console.log(username.value);
+    messages.push('Name is required')
+  }
+
+  if (password.value.length <= 3) {
+    messages.push('Password must be longer than 3 characters')
+  }
+  else if (password.value !== 'PassW') {
+    messages.push('Password or Username is incorrect')
+  }
+
+  if (password.value.length >= 20) {
+    messages.push('Password must be less than 20 characters')
+  }
+  if (messages.length > 0) {
+    e.preventDefault()
+    errorElement.innerText = messages.join(', ')
+  }
+
+  //Successful login validation with Toast notification
+  else if (password.value === 'PassW') {
+    const toastLiveExample = document.getElementById('liveToast')
+    loginButton.setAttribute('data-bs-dismiss', 'modal');
+    loginButton.click();
     
-    toast.show()
-  })
+  
+      const toast = new bootstrap.Toast(toastLiveExample)
+      toast.show()
+    
+
+    //Change navbar login button to username & sign out button
+    const loginNavbar = document.getElementById('loginNavbar')
+    loginNavbar.classList.add('user')
+    loginNavbar.innerHTML = ` ${username.value}  <a onclick="signOut()"><i class="bi bi-box-arrow-right" style="cursor: pointer;"></i></a>`
+
+    //Close modal after successful login
+  }
+})
+
+function signOut() {
+  const loginNavbar = document.getElementById('loginNavbar')
+  loginNavbar.classList.remove('user')
+  loginNavbar.innerHTML = `<button class="btn btn-custom btn-outline-secondary text-white" data-bs-toggle="modal"
+  data-bs-target="#exampleModalToggle">Log in</button>`
+
+  loginButton.removeAttribute('data-bs-dismiss', 'modal');
 }
 
 //#endregion general
@@ -36,27 +84,18 @@ hiddenElements.forEach((el) => observer.observe(el));
 
 /* arrow on project page. */
 
-const cube = document.getElementById('arrow');
+const arrow = document.getElementById('arrow');
 
 window.addEventListener('load', () => {
-  cube.classList.add('active');
+  arrow.classList.add('active');
 });
-window.onload = function() {
-  setTimeout(function() {
+window.onload = function () {
+  setTimeout(function () {
     var heading = document.querySelectorAll("#my-heading");
-    heading.forEach(function(element) {
+    heading.forEach(function (element) {
       element.classList.add("text-customv2");
     });
   }, 900);
 }
 //#endregion project.html
 
-const element = document.querySelector('#my-element');
-
-element.addEventListener('mouseenter', () => {
-  element.classList.add('cursor-shadow');
-});
-
-element.addEventListener('mouseleave', () => {
-  element.classList.remove('cursor-shadow');
-});

@@ -37,7 +37,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="ms-auto">
+                <div id="loginNavbar" class="ms-auto text-white">
                     <button class="btn btn-custom btn-outline-secondary text-white" data-bs-toggle="modal"
                         data-bs-target="#exampleModalToggle">Log in</button>
                 </div>
@@ -240,7 +240,7 @@
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
         tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white">
+            <div id="modal-form" class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Log in</h1>
                     <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal"
@@ -248,22 +248,23 @@
                 </div>
                 <div class="modal-body">
                     <p class="lead">Sign-in for Administrator access</p>
+                    <div id="error" class="text-danger"></div>
                     <form>
                         <div class="mb-3">
                             <label for="username" class="col-form-label">
                                 Användarnamn:
                             </label>
-                            <input type="text" class="form-control" id="username" />
+                            <input type="text" class="form-control" id="username" name="username" />
                         </div>
                         <div class="mb-3">
                             <label for="password" class="col-form-label">Lösenord:</label>
-                            <input type="password" class="form-control" id="password" />
+                            <input type="password" name="password" class="form-control" id="password" />
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-custom btn-outline-secondary text-white"
-                        data-bs-target="#exampleModalToggle2" id="liveToastBtn" data-bs-toggle="modal">LOGIN</button>
+                   id="liveToastBtn"  >LOGIN</button>
                 </div>
             </div>
         </div>
@@ -280,7 +281,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                Hello, world! This is a toast message.
+                Welcome back, Admin!
             </div>
         </div>
     </div>
