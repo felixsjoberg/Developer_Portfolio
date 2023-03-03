@@ -4,8 +4,8 @@
 - [Information](#information)
   - [Specifikation](#Specifikation)
   - [Screenshot](#screenshot)
-  - [Built with](#built-with)
-- [Author](#author)
+  - [Verktyg](#Verktyg)
+- [Författare](#Författare)
 
 ## Information
 
@@ -36,12 +36,12 @@ Bootstrap 5 krav:
 - modal kompnenten skall användas för inloggning.
 - Bootstrapp 5 Grid för webbsite struktur
 
-### Built with
+### Verktyg
 - Boostrap 5
 - Javascript
 - CSS & HTML
 
-## Author
+## Författare
 - Github - [Felix Sjöberg](https://github.com/felixsjoberg)
 
 
